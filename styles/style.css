@@ -1,0 +1,51 @@
+:root{
+    --main-size:600px;
+    --circle-radius:1.5cm;
+}
+
+.main-container{
+    background-color: white;
+}
+.canvas{
+    width: var(--main-size);
+    height: var(--main-size);
+    background-color: slategray;
+}
+
+.absolute-center{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.circular{
+    border-radius: 50%;
+}
+
+.border{
+    border: 1px solid black;
+}
+
+.max-circle{
+    width: calc(var(--main-size));
+    height: calc(var(--main-size));
+}
+
+.middle-circle{
+    width: calc(var(--main-size) - 2*var(--circle-radius));
+    height: calc(var(--main-size) - 2*var(--circle-radius));
+}
+
+.min-circle{
+    width: calc(var(--main-size) - 4*var(--circle-radius));
+    height: calc(var(--main-size) - 4*var(--circle-radius));
+}
+
+.circle{
+    width: calc(2*var(--circle-radius));
+    height: calc(2*var(--circle-radius));
+    background-color: black;
+}
+
+
