@@ -4,7 +4,10 @@
     <style>
         canvas {
             border: 1px solid black;
-
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         .my-div {
             padding: 1.5cm;
@@ -13,43 +16,23 @@
             border-radius: 50%;
         }
     </style>
-
 </head>
 <body>
-<div id="myDiv1" class="my-div"></div>
+
 <div id="myDiv2" class="my-div"></div>
 <div id="myDiv3" class="my-div"></div>
 <div id="myDiv4" class="my-div"></div>
 <div id="myDiv5" class="my-div"></div>
 <div id="myDiv6" class="my-div"></div>
-<canvas id="myCanvas" width="400" height="400"></canvas>
+<div id="myDiv7" class="my-div"></div>
+<div id="myDiv8" class="my-div"></div>
+<div id="myDiv9" class="my-div"></div>
+<div id="myDiv10" class="my-div"></div>
 
-<script>
-    const canvas = document.getElementById("myCanvas");
-    const context = canvas.getContext("2d");
+<canvas id="myCanvas" width="600" height="600"><div id="myDiv1" class="my-div"></div>
 
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const radius = 150; // Promijenite ovu vrijednost da biste prilagodili veličinu šestougla
+</canvas>
 
-    context.beginPath();
-    context.moveTo(centerX + radius * Math.cos(0), centerY + radius * Math.sin(0));
-
-    for (let i = 1; i <= 6; i++) {
-        const angle = i * (Math.PI / 3);
-        const x = centerX + radius * Math.cos(angle);
-        const y = centerY + radius * Math.sin(angle);
-        const div = document.getElementById("myDiv"+i);
-
-        div.style.left = x + "px";
-        div.style.top = y + "px";
-
-        context.lineTo(x, y);
-    }
-
-    canvas.style.display="none"
-    context.closePath();
-    context.stroke();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
