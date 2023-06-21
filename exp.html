@@ -1,21 +1,55 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Experiment</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+
+        }
+        .my-div {
+            padding: 1.5cm;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+
 </head>
 <body>
-    <div class="main-container">
-        <div class="canvas absolute-center"></div>
-        <div class="vertical-line"></div>
-        <div class="vertical-line"></div>
-        <div class="vertical-line"></div>
-        <div class="max-circle absolute-center border circular"></div>
-        <div class="middle-circle absolute-center border circular"></div>
-        <div class="min-circle absolute-center border circular"></div>
-        <div class="circle absolute-center circular"></div>
-    </div>
+<div id="myDiv1" class="my-div"></div>
+<div id="myDiv2" class="my-div"></div>
+<div id="myDiv3" class="my-div"></div>
+<div id="myDiv4" class="my-div"></div>
+<div id="myDiv5" class="my-div"></div>
+<div id="myDiv6" class="my-div"></div>
+<canvas id="myCanvas" width="400" height="400"></canvas>
+
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const context = canvas.getContext("2d");
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 150; // Promijenite ovu vrijednost da biste prilagodili veličinu šestougla
+
+    context.beginPath();
+    context.moveTo(centerX + radius * Math.cos(0), centerY + radius * Math.sin(0));
+
+    for (let i = 1; i <= 6; i++) {
+        const angle = i * (Math.PI / 3);
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        const div = document.getElementById("myDiv"+i);
+
+        div.style.left = x + "px";
+        div.style.top = y + "px";
+
+        context.lineTo(x, y);
+    }
+
+    canvas.style.display="none"
+    context.closePath();
+    context.stroke();
+</script>
 </body>
 </html>

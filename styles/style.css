@@ -3,6 +3,14 @@
     --circle-radius:1.5cm;
 }
 
+.flex{
+    display: flex;
+}
+
+.no-wrap{
+ flex-wrap: nowrap;
+}
+
 .main-container{
     background-color: white;
 }
@@ -33,6 +41,9 @@
 }
 
 .middle-circle{
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: calc(var(--main-size) - 2*var(--circle-radius));
     height: calc(var(--main-size) - 2*var(--circle-radius));
 }
@@ -47,5 +58,4 @@
     height: calc(2*var(--circle-radius));
     background-color: black;
 }
-
 
