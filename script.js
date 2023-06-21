@@ -27,5 +27,5 @@ function drawShape(numSides) {
     context.stroke();
 }
 
-drawShape(8); // Pravilan osmougao
+drawShape(10); // Pravilan osmougao
 // drawShape(10); // Pravilan desetougao
